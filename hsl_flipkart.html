@@ -1,0 +1,1738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>HSL Flipkart — Mi 20000 mAh 165 W Power Bank (Space Grey)</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Font: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+    body {
+      background-color: #E8ECF2;
+      color: #212121;
+      overflow-x: hidden;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .carousel-track {
+      transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    @keyframes slideUp {
+      from { transform: translateY(100%); opacity: 0.6; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .animate-slide-up {
+      animation: slideUp 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes popIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      70% { transform: scale(1.05); opacity: 1; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .animate-pop-in {
+      animation: popIn 0.35s ease-out forwards;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex justify-center items-start">
+
+  <!-- Main Mobile App Container -->
+  <div id="appShell" class="w-full max-w-[480px] min-h-screen bg-white shadow-xl relative flex flex-col pb-[76px]">
+
+    <!-- ==================== 1. TOP STICKY HEADER ==================== -->
+    <header class="sticky top-0 z-30 bg-[#EBF3FF] border-b border-[#DCE7F9] px-3 py-2.5 flex items-center gap-2">
+      <!-- Back Button -->
+      <button id="backBtn" onclick="resetToFeaturedProduct()" title="Back / Home"
+        class="w-9 h-9 rounded-full flex items-center justify-center text-[#212121] hover:bg-black/5 active:scale-95 transition shrink-0">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+        </svg>
+      </button>
+
+      <!-- HSL Flipkart Mini Brand Pill + Search Bar -->
+      <div class="flex-1 flex items-center bg-white border border-[#9EC5FE] rounded-full px-3 py-1.5 shadow-2xs focus-within:border-[#2874F0] transition">
+        <span class="text-[11px] font-extrabold italic tracking-tight text-[#2874F0] mr-1.5 shrink-0 flex items-center">
+          HSL<span class="text-[#F59E0B] ml-0.5">✦</span>
+        </span>
+        <svg class="w-4 h-4 text-[#717478] mr-1.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m1.85-5.15a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+        <input id="searchInput" type="text" placeholder="Search for products"
+          oninput="handleSearch(this.value)"
+          class="w-full text-[13.5px] text-[#212121] placeholder-[#717478] bg-transparent outline-none" />
+        <button id="clearSearchBtn" onclick="clearSearch()" class="hidden text-xs text-gray-400 hover:text-gray-600 ml-1">✕</button>
+      </div>
+
+      <!-- My Orders Icon Button -->
+      <button onclick="openOrdersModal()" title="My Orders"
+        class="w-9 h-9 rounded-full flex items-center justify-center text-[#212121] hover:bg-black/5 active:scale-95 transition relative shrink-0">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.9" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+        </svg>
+        <span id="ordersDotBadge" class="hidden absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#2874F0]"></span>
+      </button>
+
+      <!-- Cart Icon with Red Badge Counter -->
+      <button onclick="openCartDrawer()" title="Shopping Cart"
+        class="w-9 h-9 rounded-full flex items-center justify-center text-[#212121] hover:bg-black/5 active:scale-95 transition relative shrink-0">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+        </svg>
+        <span id="headerCartBadge" class="absolute top-0.5 right-0.5 min-w-[18px] h-[18px] px-1 rounded-full bg-[#FF3B30] text-white text-[10px] font-bold flex items-center justify-center border border-white">
+          0
+        </span>
+      </button>
+
+      <!-- Secret Seller Admin Button (Hidden by default; unlocked via ?seller=hsl, #admin, or 5 footer taps) -->
+      <button id="sellerAdminHeaderBtn" onclick="openSellerModal()" title="Seller Admin Panel"
+        class="hidden px-2.5 h-8 rounded-full items-center gap-1 text-[11px] font-extrabold text-white bg-[#111827] hover:bg-[#1F2937] active:scale-95 transition shadow-xs shrink-0">
+        <span>⚙</span>
+        <span>Admin</span>
+      </button>
+    </header>
+
+    <!-- Live Search Results Dropdown -->
+    <div id="searchResultsBar" class="hidden bg-white border-b border-gray-200 px-3 py-2 shadow-md z-20">
+      <div class="text-[11px] font-semibold text-gray-400 uppercase tracking-wider mb-1.5">Matching Products on HSL Flipkart</div>
+      <div id="searchResultsList" class="space-y-2"></div>
+    </div>
+
+    <!-- ==================== 2. PRODUCT HERO CAROUSEL STAGE ==================== -->
+    <section class="relative bg-[#F1F3F6] select-none overflow-hidden">
+      <!-- HSL Flipkart Assured Badge -->
+      <div class="absolute top-3 left-3 z-10 flex items-center gap-1.5 bg-white/90 backdrop-blur-xs px-2.5 py-1 rounded-full shadow-2xs border border-gray-200/70">
+        <span class="w-2 h-2 rounded-full bg-[#2874F0]"></span>
+        <span class="text-[11px] font-bold text-[#212121] tracking-tight">HSL Flipkart</span>
+        <span class="text-[10px] font-semibold text-[#2874F0] bg-[#EBF3FF] px-1.5 py-0.2 rounded">Assured</span>
+      </div>
+
+      <!-- Wishlist Heart & Share floating icons -->
+      <div class="absolute top-3 right-3 z-10 flex flex-col gap-2">
+        <button id="wishlistBtn" onclick="toggleWishlist()" aria-label="Wishlist"
+          class="w-9 h-9 rounded-full bg-white shadow-sm border border-gray-100 flex items-center justify-center text-gray-400 active:scale-90 transition">
+          <svg id="wishlistIcon" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+        </button>
+        <button onclick="copyProductLink()" aria-label="Share"
+          class="w-9 h-9 rounded-full bg-white shadow-sm border border-gray-100 flex items-center justify-center text-gray-600 active:scale-90 transition">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Carousel Viewport -->
+      <div id="carouselViewport" class="w-full h-[355px] relative overflow-hidden touch-pan-y">
+        <div id="carouselTrack" class="carousel-track flex h-full w-full"></div>
+
+        <!-- Left/Right Arrows -->
+        <button onclick="prevSlide()" aria-label="Previous Slide"
+          class="hidden sm:flex absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/85 shadow text-gray-700 items-center justify-center hover:bg-white transition">
+          ‹
+        </button>
+        <button onclick="nextSlide()" aria-label="Next Slide"
+          class="hidden sm:flex absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/85 shadow text-gray-700 items-center justify-center hover:bg-white transition">
+          ›
+        </button>
+      </div>
+
+      <!-- Floating White Rating Pill on Bottom-Left -->
+      <div class="absolute bottom-3 left-3.5 z-10 bg-white/95 backdrop-blur-xs px-2.5 py-1 rounded-full shadow-sm border border-gray-200/80 flex items-center gap-1.5 text-[12.5px] font-semibold text-[#212121]">
+        <span id="productRating">4.2</span>
+        <span class="text-[#26A541] text-[13px] leading-none">★</span>
+        <span class="text-gray-300 font-normal">|</span>
+        <span id="productRatingCount" class="text-[#565959] font-medium">223</span>
+      </div>
+    </section>
+
+    <!-- Pagination Dots Bar -->
+    <div id="carouselDots" class="bg-white pt-3 pb-2 flex items-center justify-center gap-2"></div>
+
+    <!-- ==================== 3. PRODUCT TITLE, PRICING & WOW! DEAL ==================== -->
+    <section class="bg-white px-4 pt-1 pb-3">
+      <h1 id="productTitleContainer" class="text-[15.5px] leading-[1.4] text-[#212121] font-normal">
+        <span id="productTitleText">Mi 20000 mAh 165 W Power Bank (Space Grey, Lithium Polymer, Fast</span>
+        <button id="moreToggleBtn" onclick="toggleTitleMore()" class="text-[#2874F0] font-semibold ml-1 hover:underline focus:outline-none">...more</button>
+      </h1>
+
+      <!-- Pricing Row -->
+      <div class="mt-2.5 flex items-baseline gap-2 flex-wrap">
+        <span class="inline-flex items-center text-[#388E3C] font-bold text-[19px]">
+          <svg class="w-4 h-4 mr-0.5 stroke-[3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m0 0l6.75-6.75M12 19.5l-6.75-6.75" />
+          </svg>
+          <span id="productDiscount">50%</span>
+        </span>
+        <span id="productMrp" class="text-[#878787] line-through text-[17px] font-normal">5,999</span>
+        <span id="productPrice" class="text-[#212121] font-bold text-[22px] tracking-tight">₹2,499</span>
+      </div>
+
+      <!-- Protect Promise Fee Line -->
+      <button onclick="openProtectModal()" class="mt-1 inline-flex items-center text-[12.5px] text-[#565959] hover:text-[#2874F0] transition">
+        <span>+₹49 Protect Promise Fee</span>
+        <svg class="w-3.5 h-3.5 ml-0.5 text-[#717478]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+        </svg>
+      </button>
+
+      <!-- Expandable WOW! DEAL Card -->
+      <div class="mt-3.5 rounded-xl bg-[#EBF3FF] border border-[#D4E4FF] overflow-hidden">
+        <button onclick="toggleWowDeal()" class="w-full px-3.5 py-2.5 flex items-center justify-between text-left">
+          <div class="flex items-center gap-3">
+            <div class="bg-[#111827] text-white px-2 py-1 rounded-md flex flex-col items-center justify-center leading-none shadow-2xs shrink-0 border border-white/20">
+              <span class="text-[11px] font-black italic tracking-tighter">WOW!</span>
+              <span class="text-[10px] font-extrabold tracking-wide bg-white text-[#111827] px-1 rounded-xs mt-0.5">DEAL</span>
+            </div>
+            <div>
+              <div class="text-[15.5px] font-bold text-[#111827] leading-tight">
+                Buy at <span id="wowDealPrice">₹2,220</span>
+              </div>
+              <div id="wowDealEmi" class="text-[12px] text-[#374151] font-medium mt-0.5">
+                EMI @ ₹740 x 3m
+              </div>
+            </div>
+          </div>
+          <svg id="wowChevron" class="w-5 h-5 text-[#374151] transition-transform duration-200 rotate-180" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+          </svg>
+        </button>
+
+        <div id="wowDealDetails" class="hidden px-3.5 pb-3 pt-1 border-t border-[#D4E4FF] bg-[#F5F9FF] text-[12.5px] space-y-2">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <span class="font-bold text-[#1E40AF]">Special Direct Checkout Offer:</span>
+              <span class="text-gray-700"> Get extra ₹384 instant discount when you click <b>Buy now at ₹2,115</b>!</span>
+            </div>
+            <span class="font-bold text-[#388E3C] shrink-0">-₹384</span>
+          </div>
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <span class="font-bold text-gray-800">No Cost EMI Available:</span>
+              <span class="text-gray-600"> 3 Months × ₹740/m or 6 Months × ₹385/m on major cards.</span>
+            </div>
+            <span class="text-[11px] bg-green-100 text-green-800 font-semibold px-1.5 py-0.5 rounded shrink-0">Active</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="h-2 bg-[#F1F3F6]"></div>
+
+    <!-- ==================== 4. DELIVERY & PINCODE CHECKER ==================== -->
+    <section class="bg-white px-4 py-3.5">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-full bg-[#EBF3FF] text-[#2874F0] flex items-center justify-center shrink-0">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+            </svg>
+          </div>
+          <div>
+            <div class="text-[13px] font-semibold text-[#212121]">
+              Deliver to <span id="deliveryCityLabel" class="text-[#2874F0]">Chennai - 600001</span>
+            </div>
+            <div class="text-[12px] text-[#388E3C] font-semibold">
+              FREE Delivery <span class="text-[#2874F0] font-medium">• Online Payment Only (Prepaid)</span>
+            </div>
+          </div>
+        </div>
+        <button onclick="togglePincodeInput()" class="text-[12.5px] font-bold text-[#2874F0] border border-[#D4E4FF] px-3 py-1 rounded-md hover:bg-[#EBF3FF] transition">
+          Change
+        </button>
+      </div>
+
+      <div id="pincodeForm" class="hidden mt-3 flex items-center gap-2">
+        <input id="pincodeInput" type="text" maxlength="6" placeholder="Enter 6-digit Pincode"
+          class="flex-1 text-[13px] border border-gray-300 rounded-lg px-3 py-1.5 outline-none focus:border-[#2874F0]" />
+        <button onclick="applyPincode()" class="bg-[#2874F0] text-white text-[13px] font-semibold px-4 py-1.5 rounded-lg">
+          Check
+        </button>
+      </div>
+    </section>
+
+    <div class="h-2 bg-[#F1F3F6]"></div>
+
+    <!-- ==================== 5. PRODUCT HIGHLIGHTS & SPECIFICATIONS ==================== -->
+    <section class="bg-white px-4 py-4">
+      <div class="flex items-center justify-between mb-3">
+        <h2 class="text-[15.5px] font-bold text-[#212121]">Product Highlights</h2>
+        <span class="text-[11px] font-semibold text-[#388E3C] bg-[#E8F5E9] px-2 py-0.5 rounded-full">1 Year Warranty</span>
+      </div>
+
+      <ul id="highlightsList" class="space-y-2.5 text-[13.5px] text-[#374151]"></ul>
+
+      <div class="mt-4 pt-3.5 border-t border-gray-100 grid grid-cols-2 gap-3 text-[12.5px]">
+        <div class="bg-[#F8FAFC] p-2.5 rounded-lg border border-gray-100">
+          <div class="text-gray-400 text-[11px]">Color</div>
+          <div class="font-semibold text-[#212121] mt-0.5">Space Grey</div>
+        </div>
+        <div class="bg-[#F8FAFC] p-2.5 rounded-lg border border-gray-100">
+          <div class="text-gray-400 text-[11px]">Output Ports</div>
+          <div class="font-semibold text-[#212121] mt-0.5">USB-C + USB-A + Cable</div>
+        </div>
+        <div class="bg-[#F8FAFC] p-2.5 rounded-lg border border-gray-100">
+          <div class="text-gray-400 text-[11px]">Battery Type</div>
+          <div class="font-semibold text-[#212121] mt-0.5">Lithium Polymer</div>
+        </div>
+        <div class="bg-[#F8FAFC] p-2.5 rounded-lg border border-gray-100">
+          <div class="text-gray-400 text-[11px]">Model Number</div>
+          <div class="font-semibold text-[#212121] mt-0.5">PB200SZM (165W)</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="h-2 bg-[#F1F3F6]"></div>
+
+    <!-- ==================== 6. MORE PRODUCTS ON HSL FLIPKART ==================== -->
+    <section id="moreProductsSection" class="hidden bg-white px-4 py-4">
+      <div class="flex items-center justify-between mb-3">
+        <h2 class="text-[15px] font-bold text-[#212121]">More on HSL Flipkart Store</h2>
+        <span class="text-[11px] text-[#2874F0] font-semibold">Tap to view</span>
+      </div>
+      <div id="storeProductsGrid" class="grid grid-cols-2 gap-3"></div>
+    </section>
+
+    <!-- ==================== 7. RATINGS & REVIEWS SUMMARY ==================== -->
+    <section class="bg-white px-4 py-4 mb-4">
+      <div class="flex items-center justify-between mb-2">
+        <h2 class="text-[15.5px] font-bold text-[#212121]">Ratings & Reviews</h2>
+        <span class="inline-flex items-center gap-1 bg-[#26A541] text-white text-[12px] font-bold px-2 py-0.5 rounded-full">
+          4.2 ★
+        </span>
+      </div>
+      <p class="text-[12px] text-[#565959] mb-3">Based on 223 verified HSL Flipkart buyers</p>
+
+      <div class="space-y-2.5">
+        <div class="p-3 rounded-xl bg-[#F8FAFC] border border-gray-100">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="bg-[#26A541] text-white text-[11px] font-bold px-1.5 py-0.2 rounded">5 ★</span>
+            <span class="text-[13px] font-semibold text-[#212121]">Charges my laptop & phone super fast!</span>
+          </div>
+          <p class="text-[12px] text-gray-600">Built-in braided cable is super sturdy and the 70% LED display looks very premium in Space Grey.</p>
+          <div class="text-[11px] text-gray-400 mt-1.5">Karthik R. • Certified Buyer, Chennai</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Subtle Store Footer (Tap "HSL Flipkart" 5 times to unlock Seller Admin) -->
+    <footer class="bg-[#F8FAFC] border-t border-gray-100 px-4 py-4 text-center select-none">
+      <button type="button" onclick="handleSecretFooterTap()"
+        class="inline-flex items-center gap-1.5 text-[11.5px] font-semibold text-gray-500 hover:text-[#2874F0] transition">
+        <span class="font-extrabold italic text-[#2874F0]">HSL Flipkart</span>
+        <span>•</span>
+        <span>100% Genuine Prepaid Store</span>
+      </button>
+      <p class="text-[10.5px] text-gray-400 mt-0.5">Safe & Verified Online Checkout</p>
+    </footer>
+
+    <!-- ==================== 8. STICKY BOTTOM ACTION BAR ==================== -->
+    <div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[480px] z-30 bg-white border-t border-gray-200 px-3 py-2 flex items-center gap-2.5 shadow-[0_-4px_12px_rgba(0,0,0,0.06)]">
+      <!-- Add to Cart Button -->
+      <button onclick="addToCartCurrent()" aria-label="Add to Cart"
+        class="w-12 h-12 rounded-xl border border-gray-300 bg-white hover:bg-gray-50 active:scale-95 transition flex items-center justify-center text-[#212121] shrink-0">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 7v4m2-2h-4" />
+        </svg>
+      </button>
+
+      <!-- Buy with EMI Button -->
+      <button onclick="openCheckout('EMI')"
+        class="flex-1 h-12 rounded-xl bg-[#FFC200] hover:bg-[#F5B800] active:scale-[0.98] transition flex flex-col items-center justify-center leading-tight shadow-2xs">
+        <span class="text-[14px] font-bold text-[#111827]">Buy with EMI</span>
+        <span id="bottomEmiSubtext" class="text-[11.5px] font-medium text-[#1F2937]">From ₹754/m</span>
+      </button>
+
+      <!-- Buy now Button -->
+      <button onclick="openCheckout('DIRECT')"
+        class="flex-1 h-12 rounded-xl bg-white border border-gray-300 hover:bg-gray-50 active:scale-[0.98] transition flex flex-col items-center justify-center leading-tight shadow-2xs">
+        <span class="text-[14px] font-bold text-[#111827]">Buy now</span>
+        <span id="bottomBuyNowSubtext" class="text-[11.5px] font-semibold text-[#111827]">at ₹2,115</span>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- ==================== TOAST NOTIFICATION ==================== -->
+  <div id="toastBanner" class="fixed bottom-20 left-1/2 -translate-x-1/2 z-50 hidden bg-[#1F2937] text-white text-[13px] font-medium px-4 py-2.5 rounded-full shadow-lg flex items-center gap-2 whitespace-nowrap">
+    <span class="w-2 h-2 rounded-full bg-[#26A541]"></span>
+    <span id="toastMessage">Added to Cart</span>
+  </div>
+
+  <!-- ==================== MODAL 1: DIRECT IN-APP CHECKOUT (ONLINE PAYMENT ONLY) ==================== -->
+  <div id="checkoutModal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-2xs flex items-end sm:items-center justify-center">
+    <div class="w-full max-w-[480px] bg-white rounded-t-2xl sm:rounded-2xl max-h-[92vh] flex flex-col overflow-hidden animate-slide-up shadow-2xl">
+      <!-- Checkout Header -->
+      <div class="bg-[#2874F0] text-white px-4 py-3.5 flex items-center justify-between shrink-0">
+        <div class="flex items-center gap-2">
+          <span class="font-extrabold italic text-base">HSL Flipkart</span>
+          <span class="text-xs bg-white/20 px-2 py-0.5 rounded-full font-medium">Secure Checkout</span>
+        </div>
+        <button onclick="closeCheckout()" class="w-8 h-8 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center text-white">✕</button>
+      </div>
+
+      <!-- Step Indicator -->
+      <div class="bg-[#F1F5F9] px-4 py-2.5 flex items-center justify-between text-[12px] font-semibold border-b border-gray-200 shrink-0">
+        <div id="stepIndicator1" class="flex items-center gap-1.5 text-[#2874F0]">
+          <span class="w-5 h-5 rounded-full bg-[#2874F0] text-white flex items-center justify-center text-[11px]">1</span>
+          <span>Address</span>
+        </div>
+        <div class="h-px flex-1 bg-gray-300 mx-2"></div>
+        <div id="stepIndicator2" class="flex items-center gap-1.5 text-gray-400">
+          <span class="w-5 h-5 rounded-full bg-gray-300 text-white flex items-center justify-center text-[11px]">2</span>
+          <span>Summary</span>
+        </div>
+        <div class="h-px flex-1 bg-gray-300 mx-2"></div>
+        <div id="stepIndicator3" class="flex items-center gap-1.5 text-gray-400">
+          <span class="w-5 h-5 rounded-full bg-gray-300 text-white flex items-center justify-center text-[11px]">3</span>
+          <span>Payment</span>
+        </div>
+      </div>
+
+      <!-- Checkout Scrollable Body -->
+      <div class="p-4 overflow-y-auto flex-1 space-y-4">
+        <!-- STEP 1: DELIVERY ADDRESS -->
+        <div id="checkoutStep1" class="space-y-3">
+          <h3 class="text-[15px] font-bold text-[#212121]">Enter Delivery Address</h3>
+          <div>
+            <label class="block text-[12px] font-semibold text-gray-600 mb-1">Full Name *</label>
+            <input id="custName" type="text" placeholder="e.g., Arjun Kumar"
+              class="w-full border border-gray-300 rounded-xl px-3.5 py-2.5 text-[14px] outline-none focus:border-[#2874F0]" />
+          </div>
+          <div class="grid grid-cols-2 gap-2.5">
+            <div>
+              <label class="block text-[12px] font-semibold text-gray-600 mb-1">Mobile Number *</label>
+              <input id="custPhone" type="tel" maxlength="10" placeholder="10-digit number"
+                class="w-full border border-gray-300 rounded-xl px-3.5 py-2.5 text-[14px] outline-none focus:border-[#2874F0]" />
+            </div>
+            <div>
+              <label class="block text-[12px] font-semibold text-gray-600 mb-1">Pincode *</label>
+              <input id="custPincode" type="text" maxlength="6" placeholder="e.g., 600001"
+                class="w-full border border-gray-300 rounded-xl px-3.5 py-2.5 text-[14px] outline-none focus:border-[#2874F0]" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-[12px] font-semibold text-gray-600 mb-1">City / District & State *</label>
+            <input id="custCity" type="text" placeholder="e.g., Chennai, Tamil Nadu"
+              class="w-full border border-gray-300 rounded-xl px-3.5 py-2.5 text-[14px] outline-none focus:border-[#2874F0]" />
+          </div>
+          <div>
+            <label class="block text-[12px] font-semibold text-gray-600 mb-1">House No., Street, Landmark *</label>
+            <textarea id="custAddress" rows="2" placeholder="Door No, Street Name, Area..."
+              class="w-full border border-gray-300 rounded-xl px-3.5 py-2 text-[14px] outline-none focus:border-[#2874F0]"></textarea>
+          </div>
+          <p id="step1Error" class="hidden text-xs font-semibold text-red-600 bg-red-50 px-3 py-2 rounded-lg"></p>
+          <button onclick="goToCheckoutStep(2)"
+            class="w-full py-3 rounded-xl bg-[#FB641B] hover:bg-[#e85a13] text-white font-bold text-[15px] shadow-md transition">
+            Deliver Here →
+          </button>
+        </div>
+
+        <!-- STEP 2: ORDER SUMMARY -->
+        <div id="checkoutStep2" class="hidden space-y-3.5">
+          <div class="flex items-center justify-between">
+            <h3 class="text-[15px] font-bold text-[#212121]">Order Summary</h3>
+            <button onclick="goToCheckoutStep(1)" class="text-xs font-bold text-[#2874F0]">Edit Address</button>
+          </div>
+
+          <div id="summaryAddressBox" class="p-3 rounded-xl bg-[#F8FAFC] border border-gray-200 text-[12.5px] text-gray-700"></div>
+
+          <!-- Item Card -->
+          <div class="p-3 rounded-xl border border-gray-200 flex items-center gap-3">
+            <div class="w-16 h-16 rounded-lg bg-[#F1F3F6] flex items-center justify-center shrink-0 overflow-hidden" id="summaryProductThumb"></div>
+            <div class="flex-1 min-w-0">
+              <div id="summaryProductTitle" class="text-[13.5px] font-semibold text-[#212121] truncate"></div>
+              <div id="summaryModeTag" class="inline-block mt-1 text-[11px] font-semibold bg-[#EBF3FF] text-[#2874F0] px-2 py-0.5 rounded"></div>
+              <div class="mt-2 flex items-center justify-between">
+                <span id="summaryUnitPrice" class="font-bold text-[15px] text-[#212121]"></span>
+                <div class="flex items-center border border-gray-300 rounded-lg overflow-hidden">
+                  <button onclick="changeCheckoutQty(-1)" class="px-2.5 py-0.5 bg-gray-100 font-bold">-</button>
+                  <span id="checkoutQty" class="px-3 text-xs font-bold">1</span>
+                  <button onclick="changeCheckoutQty(1)" class="px-2.5 py-0.5 bg-gray-100 font-bold">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Price Breakdown -->
+          <div class="p-3.5 rounded-xl bg-[#F8FAFC] border border-gray-200 space-y-2 text-[13px]">
+            <div class="flex justify-between text-gray-600">
+              <span>Price (<span id="priceQtyLabel">1</span> item)</span>
+              <span id="breakdownBasePrice">₹2,115</span>
+            </div>
+            <div class="flex justify-between text-gray-600">
+              <span>Delivery Charges</span>
+              <span class="text-[#388E3C] font-bold">FREE</span>
+            </div>
+            <div class="border-t border-dashed border-gray-300 pt-2 flex justify-between font-bold text-[15px] text-[#212121]">
+              <span>Total Payable</span>
+              <span id="breakdownTotal">₹2,115</span>
+            </div>
+          </div>
+
+          <button onclick="goToCheckoutStep(3)"
+            class="w-full py-3 rounded-xl bg-[#FB641B] hover:bg-[#e85a13] text-white font-bold text-[15px] shadow-md transition">
+            Continue to Payment →
+          </button>
+        </div>
+
+        <!-- STEP 3: ONLINE PAYMENT ONLY (PREPAID UPI / QR CODE) -->
+        <div id="checkoutStep3" class="hidden space-y-3.5">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <h3 class="text-[15px] font-bold text-[#212121]">Online Payment</h3>
+              <span class="text-[10.5px] font-bold bg-[#EBF3FF] text-[#2874F0] border border-[#BFD7FF] px-2 py-0.5 rounded-full">
+                Online Payment Only
+              </span>
+            </div>
+            <button onclick="goToCheckoutStep(2)" class="text-xs font-bold text-[#2874F0]">← Summary</button>
+          </div>
+
+          <!-- Prepaid Online Payment Card -->
+          <div class="p-3.5 rounded-xl border-2 border-[#2874F0] bg-[#F5F9FF] space-y-3">
+            <div class="flex items-start justify-between gap-2">
+              <div>
+                <div class="font-bold text-[14px] text-[#212121]">Prepaid UPI / QR Code / GPay / PhonePe</div>
+                <p class="text-[11.5px] text-gray-600 mt-0.5">100% Prepaid verified orders only. Cash on Delivery is disabled.</p>
+              </div>
+              <span class="text-[11px] font-bold bg-[#E8F5E9] text-[#388E3C] px-2 py-0.5 rounded shrink-0">Prepaid</span>
+            </div>
+
+            <!-- Dynamic QR & UPI Area -->
+            <div id="sellerUpiDisplayArea" class="text-[12.5px]"></div>
+
+            <div>
+              <label class="block text-[11.5px] font-semibold text-gray-700 mb-1">UPI Transaction ID / UTR Ref (Optional for Test Orders)</label>
+              <input id="upiRefInput" type="text" placeholder="Enter 12-digit UTR / Ref or leave blank for test"
+                class="w-full border border-gray-300 rounded-lg px-3 py-2 text-[13px] bg-white outline-none focus:border-[#2874F0]" />
+            </div>
+          </div>
+
+          <div class="space-y-2 pt-1">
+            <button onclick="placeFinalOrder(false)"
+              class="w-full py-3.5 rounded-xl bg-[#FFC200] hover:bg-[#F5B800] text-[#111827] font-extrabold text-[15px] shadow-md transition flex items-center justify-center gap-2">
+              <span>Confirm Online Order</span>
+              <span id="confirmPayBtnAmount" class="bg-black/10 px-2 py-0.5 rounded text-[13px]">₹2,115</span>
+            </button>
+
+            <button onclick="placeFinalOrder(true)"
+              class="w-full py-2.5 rounded-xl border border-dashed border-[#2874F0] bg-white hover:bg-[#F5F9FF] text-[#2874F0] font-bold text-[13px] transition">
+              ⚡ Place Test Order (For Friends Demo)
+            </button>
+          </div>
+        </div>
+
+        <!-- STEP 4: ORDER CONFIRMED SUCCESS SCREEN -->
+        <div id="checkoutSuccessStep" class="hidden py-4 text-center space-y-3 animate-pop-in">
+          <div class="w-16 h-16 rounded-full bg-[#E8F5E9] text-[#26A541] flex items-center justify-center mx-auto text-3xl font-bold shadow-sm">
+            ✓
+          </div>
+          <h3 class="text-[19px] font-extrabold text-[#212121]">Order Placed Successfully!</h3>
+          <p class="text-[13px] text-gray-600">Thank you for shopping with <strong>HSL Flipkart</strong>.</p>
+          <div class="p-3.5 rounded-xl bg-[#F8FAFC] border border-gray-200 text-left text-[12.5px] space-y-1.5">
+            <div class="flex justify-between">
+              <span class="text-gray-500">Order ID:</span>
+              <span id="confirmedOrderId" class="font-bold text-[#2874F0]">HSL-OD1001</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-500">Payment Mode:</span>
+              <span id="confirmedOrderMode" class="font-bold text-[#212121]">Online Payment</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-500">Total Amount:</span>
+              <span id="confirmedOrderTotal" class="font-bold text-[#388E3C]">₹2,115</span>
+            </div>
+          </div>
+          <div class="flex gap-2.5 pt-2">
+            <button onclick="closeCheckout(); openOrdersModal();" class="flex-1 py-2.5 rounded-xl border border-[#2874F0] text-[#2874F0] font-bold text-[13.5px]">
+              View My Orders
+            </button>
+            <button onclick="closeCheckout()" class="flex-1 py-2.5 rounded-xl bg-[#2874F0] text-white font-bold text-[13.5px]">
+              Continue Shopping
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL 2: MY ORDERS DRAWER ==================== -->
+  <div id="ordersModal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-2xs flex items-end sm:items-center justify-center">
+    <div class="w-full max-w-[480px] bg-white rounded-t-2xl sm:rounded-2xl max-h-[88vh] flex flex-col overflow-hidden animate-slide-up">
+      <div class="bg-[#2874F0] text-white px-4 py-3.5 flex items-center justify-between">
+        <h3 class="font-bold text-[16px]">My Orders (HSL Flipkart)</h3>
+        <button onclick="closeOrdersModal()" class="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center">✕</button>
+      </div>
+      <div id="customerOrdersList" class="p-4 overflow-y-auto space-y-3 flex-1 bg-[#F1F3F6]"></div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL 3: CART DRAWER ==================== -->
+  <div id="cartModal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-2xs flex items-end sm:items-center justify-center">
+    <div class="w-full max-w-[480px] bg-white rounded-t-2xl sm:rounded-2xl max-h-[88vh] flex flex-col overflow-hidden animate-slide-up">
+      <div class="bg-[#2874F0] text-white px-4 py-3.5 flex items-center justify-between">
+        <h3 class="font-bold text-[16px]">My Cart (<span id="cartModalCount">0</span>)</h3>
+        <button onclick="closeCartDrawer()" class="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center">✕</button>
+      </div>
+      <div id="cartItemsContainer" class="p-4 overflow-y-auto space-y-3 flex-1 bg-[#F1F3F6]"></div>
+      <div id="cartFooter" class="hidden p-3.5 bg-white border-t border-gray-200 flex items-center justify-between">
+        <div>
+          <div class="text-[11px] text-gray-500">Total Amount</div>
+          <div id="cartTotalAmount" class="text-[18px] font-extrabold text-[#212121]">₹2,115</div>
+        </div>
+        <button onclick="checkoutFromCart()" class="px-6 py-2.5 rounded-xl bg-[#FB641B] text-white font-bold text-[14px] shadow">
+          Place Order →
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL 4: SECRET SELLER ADMIN PANEL ==================== -->
+  <div id="sellerModal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-2xs flex items-end sm:items-center justify-center">
+    <div class="w-full max-w-[480px] bg-white rounded-t-2xl sm:rounded-2xl max-h-[92vh] flex flex-col overflow-hidden animate-slide-up">
+      <div class="bg-[#111827] text-white px-4 py-3.5 flex items-center justify-between">
+        <div>
+          <h3 class="font-bold text-[15px]">HSL Flipkart — Secret Seller Admin</h3>
+          <p class="text-[11px] text-gray-300">Visible only to you • Manage Orders, QR & Links</p>
+        </div>
+        <button onclick="closeSellerModal()" class="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center">✕</button>
+      </div>
+
+      <!-- 4 Seller Tabs -->
+      <div class="flex border-b border-gray-200 bg-gray-50 text-[12px] font-bold">
+        <button id="sellerTabBtn1" onclick="switchSellerTab(1)" class="flex-1 py-2.5 text-[#2874F0] border-b-2 border-[#2874F0] bg-white">
+          Orders (<span id="sellerOrderCountBadge">0</span>)
+        </button>
+        <button id="sellerTabBtn2" onclick="switchSellerTab(2)" class="flex-1 py-2.5 text-gray-500">
+          QR & UPI
+        </button>
+        <button id="sellerTabBtn3" onclick="switchSellerTab(3)" class="flex-1 py-2.5 text-gray-500">
+          Products
+        </button>
+        <button id="sellerTabBtn4" onclick="switchSellerTab(4)" class="flex-1 py-2.5 text-gray-500">
+          Links
+        </button>
+      </div>
+
+      <div class="p-4 overflow-y-auto flex-1 space-y-4">
+        <!-- SELLER TAB 1: ORDERS RECEIVED -->
+        <div id="sellerTab1" class="space-y-3">
+          <div id="sellerOrdersList" class="space-y-3"></div>
+        </div>
+
+        <!-- SELLER TAB 2: QR CODE & UPI UPLOAD -->
+        <div id="sellerTab2" class="hidden space-y-3">
+          <div class="p-3 rounded-xl bg-[#EBF3FF] text-[12px] text-[#1E40AF]">
+            <strong>Currently Unconfigured:</strong> No UPI ID or QR Code is stored right now. When your friends confirm they want to buy, upload your QR code or UPI ID here anytime.
+          </div>
+          <div>
+            <label class="block text-[12px] font-semibold text-gray-700 mb-1">Store / Payee Name</label>
+            <input id="sellerPayeeInput" type="text" placeholder="e.g., HSL Store"
+              class="w-full border border-gray-300 rounded-xl px-3.5 py-2 text-[13.5px] outline-none focus:border-[#2874F0]" />
+          </div>
+          <div>
+            <label class="block text-[12px] font-semibold text-gray-700 mb-1">Your UPI ID (Optional)</label>
+            <input id="sellerUpiInput" type="text" placeholder="Leave blank now — add yourname@upi later"
+              class="w-full border border-gray-300 rounded-xl px-3.5 py-2 text-[13.5px] outline-none focus:border-[#2874F0]" />
+          </div>
+          <div>
+            <label class="block text-[12px] font-semibold text-gray-700 mb-1">Upload Payment QR Code Image</label>
+            <input id="sellerQrFileInput" type="file" accept="image/*" onchange="handleQrUpload(event)"
+              class="w-full text-xs text-gray-600 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:bg-[#EBF3FF] file:text-[#2874F0] file:font-semibold" />
+            <div id="sellerQrPreview" class="mt-2"></div>
+          </div>
+          <div class="flex gap-2 pt-1">
+            <button onclick="saveSellerPaymentSettings()" class="flex-1 py-2.5 rounded-xl bg-[#2874F0] text-white font-bold text-[13.5px]">
+              Save QR & UPI
+            </button>
+            <button onclick="clearSellerPaymentSettings()" class="px-4 py-2.5 rounded-xl border border-gray-300 text-gray-600 font-semibold text-[13px]">
+              Clear
+            </button>
+          </div>
+        </div>
+
+        <!-- SELLER TAB 3: ADD / EDIT PRODUCTS -->
+        <div id="sellerTab3" class="hidden space-y-4">
+          <div class="p-3 rounded-xl bg-[#F8FAFC] border border-gray-200 space-y-2.5">
+            <div class="flex items-center justify-between">
+              <h4 class="font-bold text-[13px] text-[#212121]">Quick Edit Current Product</h4>
+              <span class="text-[10.5px] font-semibold text-[#2874F0]">Active Item</span>
+            </div>
+            <div>
+              <label class="block text-[11px] font-semibold text-gray-600 mb-1">Product Title</label>
+              <input id="editCurrTitle" type="text"
+                class="w-full border border-gray-300 rounded-lg px-3 py-1.5 text-[12.5px] bg-white outline-none focus:border-[#2874F0]" />
+            </div>
+            <div class="grid grid-cols-3 gap-2">
+              <div>
+                <label class="block text-[11px] font-semibold text-gray-600 mb-1">MRP (₹)</label>
+                <input id="editCurrMrp" type="number"
+                  class="w-full border border-gray-300 rounded-lg px-2.5 py-1.5 text-[12.5px] bg-white outline-none focus:border-[#2874F0]" />
+              </div>
+              <div>
+                <label class="block text-[11px] font-semibold text-gray-600 mb-1">Offer Price</label>
+                <input id="editCurrPrice" type="number"
+                  class="w-full border border-gray-300 rounded-lg px-2.5 py-1.5 text-[12.5px] bg-white outline-none focus:border-[#2874F0]" />
+              </div>
+              <div>
+                <label class="block text-[11px] font-semibold text-gray-600 mb-1">Buy Now ₹</label>
+                <input id="editCurrDirect" type="number"
+                  class="w-full border border-gray-300 rounded-lg px-2.5 py-1.5 text-[12.5px] bg-white outline-none focus:border-[#2874F0]" />
+              </div>
+            </div>
+            <button onclick="saveEditedCurrentProduct()" class="w-full py-2 rounded-lg bg-[#2874F0] text-white font-bold text-[12.5px]">
+              Update Current Product
+            </button>
+          </div>
+
+          <div class="space-y-2.5 pt-1 border-t border-gray-200">
+            <h4 class="font-bold text-[13.5px] text-[#212121]">+ Add New Product to Store</h4>
+            <div>
+              <label class="block text-[11.5px] font-semibold text-gray-700 mb-1">Product Title *</label>
+              <input id="newProdTitle" type="text" placeholder="e.g., boAt Rockerz 255 Pro+ Neckband"
+                class="w-full border border-gray-300 rounded-xl px-3 py-2 text-[13px] outline-none focus:border-[#2874F0]" />
+            </div>
+            <div class="grid grid-cols-3 gap-2">
+              <div>
+                <label class="block text-[11px] font-semibold text-gray-700 mb-1">MRP (₹) *</label>
+                <input id="newProdMrp" type="number" placeholder="3990"
+                  class="w-full border border-gray-300 rounded-xl px-3 py-2 text-[13px] outline-none focus:border-[#2874F0]" />
+              </div>
+              <div>
+                <label class="block text-[11px] font-semibold text-gray-700 mb-1">Selling Price *</label>
+                <input id="newProdPrice" type="number" placeholder="1299"
+                  class="w-full border border-gray-300 rounded-xl px-3 py-2 text-[13px] outline-none focus:border-[#2874F0]" />
+              </div>
+              <div>
+                <label class="block text-[11px] font-semibold text-gray-700 mb-1">Direct Buy ₹</label>
+                <input id="newProdDirectPrice" type="number" placeholder="1199"
+                  class="w-full border border-gray-300 rounded-xl px-3 py-2 text-[13px] outline-none focus:border-[#2874F0]" />
+              </div>
+            </div>
+            <div>
+              <label class="block text-[11.5px] font-semibold text-gray-700 mb-1">Product Photo (From Phone/Laptop)</label>
+              <input id="newProdImageInput" type="file" accept="image/*" onchange="handleNewProductImage(event)"
+                class="w-full text-xs text-gray-600 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:bg-[#EBF3FF] file:text-[#2874F0] file:font-semibold" />
+            </div>
+            <div>
+              <label class="block text-[11.5px] font-semibold text-gray-700 mb-1">Key Highlights (Comma separated)</label>
+              <input id="newProdHighlights" type="text" placeholder="60 Hours Playback, ASAP Charge, IPX7 Water Resistant"
+                class="w-full border border-gray-300 rounded-xl px-3 py-2 text-[13px] outline-none focus:border-[#2874F0]" />
+            </div>
+            <button onclick="addNewStoreProduct()" class="w-full py-2.5 rounded-xl bg-[#26A541] text-white font-bold text-[13.5px] shadow">
+              + Publish Product to Store
+            </button>
+          </div>
+        </div>
+
+        <!-- SELLER TAB 4: PUBLIC CUSTOMER LINK VS SECRET ADMIN LINK -->
+        <div id="sellerTab4" class="hidden space-y-3.5">
+          <div class="p-3 rounded-xl bg-[#F8FAFC] border border-gray-200 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-extrabold text-[#26A541] uppercase">1. Public Customer Link</span>
+              <span class="text-[10.5px] bg-green-100 text-green-800 font-semibold px-2 py-0.5 rounded">Share with Friends</span>
+            </div>
+            <p class="text-[11.5px] text-gray-600">Share this link with friends/customers. The Admin button stays completely hidden on this link.</p>
+            <div class="flex items-center gap-2">
+              <input id="publicCustomerLinkBox" type="text" readonly
+                class="flex-1 text-[11.5px] font-mono bg-white border border-gray-300 rounded-lg px-2.5 py-2 text-gray-700 outline-none" />
+              <button onclick="copyGeneratedLink('publicCustomerLinkBox', 'Customer Link copied!')"
+                class="px-3 py-2 rounded-lg bg-[#2874F0] text-white text-xs font-bold shrink-0">
+                Copy
+              </button>
+            </div>
+          </div>
+
+          <div class="p-3 rounded-xl bg-[#FFFBEB] border border-amber-200 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-extrabold text-amber-800 uppercase">2. Secret Seller Admin Link</span>
+              <span class="text-[10.5px] bg-amber-200 text-amber-900 font-bold px-2 py-0.5 rounded">Only For You</span>
+            </div>
+            <p class="text-[11.5px] text-amber-900">Opening this link (with <strong>?seller=hsl</strong>) automatically unlocks your Admin Settings button. (Or tap <em>"HSL Flipkart"</em> in the footer 5 times).</p>
+            <div class="flex items-center gap-2">
+              <input id="secretAdminLinkBox" type="text" readonly
+                class="flex-1 text-[11.5px] font-mono bg-white border border-amber-300 rounded-lg px-2.5 py-2 text-gray-800 outline-none" />
+              <button onclick="copyGeneratedLink('secretAdminLinkBox', 'Secret Admin Link copied!')"
+                class="px-3 py-2 rounded-lg bg-[#111827] text-white text-xs font-bold shrink-0">
+                Copy
+              </button>
+            </div>
+          </div>
+
+          <button onclick="lockSellerAdminMode()" class="w-full py-2.5 rounded-xl border border-gray-300 text-gray-700 font-bold text-xs hover:bg-gray-50">
+            Hide Admin Button (Preview Customer View)
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL 5: PROTECT PROMISE INFO ==================== -->
+  <div id="protectModal" class="fixed inset-0 z-50 hidden bg-black/60 flex items-center justify-center p-4">
+    <div class="w-full max-w-[380px] bg-white rounded-2xl p-4 space-y-3 animate-pop-in">
+      <div class="flex items-center justify-between">
+        <span class="font-bold text-[15px] text-[#2874F0]">HSL Flipkart Protect Promise</span>
+        <button onclick="closeProtectModal()" class="text-gray-400 hover:text-gray-700">✕</button>
+      </div>
+      <p class="text-[12.5px] text-gray-600 leading-relaxed">
+        The nominal <strong>₹49 Protect Promise Fee</strong> covers safe multi-layer packaging, priority doorstep inspection, and hassle-free 7-day replacement guarantee for electronics.
+      </p>
+      <button onclick="closeProtectModal()" class="w-full py-2 rounded-xl bg-[#2874F0] text-white font-semibold text-[13px]">Got It</button>
+    </div>
+  </div>
+
+  <!-- ==================== APPLICATION JAVASCRIPT ==================== -->
+  <script>
+    // -------------------------------------------------------------------------
+    // 1. HIGH-PRECISION SVG ARTWORK FOR MI 20000 MAH 165W POWER BANK (6 SLIDES)
+    // -------------------------------------------------------------------------
+    function getPowerBankSlide1SVG() {
+      return `
+        <svg viewBox="0 0 360 340" class="w-full h-full max-h-[330px]" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="bodyMetal" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#4A4E58"/>
+              <stop offset="16%" stop-color="#7B808C"/>
+              <stop offset="32%" stop-color="#646975"/>
+              <stop offset="85%" stop-color="#525661"/>
+              <stop offset="100%" stop-color="#3B3F47"/>
+            </linearGradient>
+            <linearGradient id="sideEdge" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#3E424B"/>
+              <stop offset="100%" stop-color="#585D68"/>
+            </linearGradient>
+            <linearGradient id="glassDisplay" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#1A1D24"/>
+              <stop offset="50%" stop-color="#0B0D10"/>
+              <stop offset="100%" stop-color="#14171D"/>
+            </linearGradient>
+            <linearGradient id="batteryCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#2563EB"/>
+              <stop offset="75%" stop-color="#06B6D4"/>
+              <stop offset="100%" stop-color="#34D399"/>
+            </linearGradient>
+            <pattern id="braidPattern" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+              <rect width="6" height="6" fill="#6E737F"/>
+              <line x1="0" y1="0" x2="0" y2="6" stroke="#4B4F59" stroke-width="2.5"/>
+              <line x1="3" y1="0" x2="3" y2="6" stroke="#8C92A0" stroke-width="1.5"/>
+            </pattern>
+          </defs>
+
+          <ellipse cx="180" cy="322" rx="95" ry="10" fill="#CBD5E1" opacity="0.65"/>
+
+          <!-- Braided Cable Loop -->
+          <path d="M 244 8 C 244 80, 244 160, 244 218 C 244 252, 294 252, 294 216 C 294 175, 266 122, 264 90"
+                fill="none" stroke="url(#braidPattern)" stroke-width="11" stroke-linecap="round"/>
+          <path d="M 244 8 C 244 80, 244 160, 244 218 C 244 252, 294 252, 294 216 C 294 175, 266 122, 264 90"
+                fill="none" stroke="#2D3139" stroke-width="11.5" stroke-opacity="0.22" stroke-linecap="round"/>
+
+          <!-- USB-C Tip & Side Clip -->
+          <rect x="257" y="64" width="13" height="10" rx="2" fill="#D97706" opacity="0.85"/>
+          <rect x="234" y="70" width="44" height="32" rx="6" fill="#646975" stroke="#454952" stroke-width="1"/>
+          <rect x="236" y="72" width="14" height="28" rx="3" fill="#525661"/>
+
+          <!-- Left Side Bevel -->
+          <path d="M 96 10 L 132 10 L 132 315 L 96 306 Z" fill="url(#sideEdge)"/>
+
+          <!-- Main Front Metallic Body -->
+          <rect x="126" y="8" width="112" height="308" rx="14" fill="url(#bodyMetal)"/>
+          <line x1="130" y1="12" x2="130" y2="312" stroke="#9CA3AF" stroke-width="1.5" opacity="0.5"/>
+
+          <!-- Top Glossy Black Digital Display Panel -->
+          <path d="M 140 8 L 226 8 L 226 114 C 226 121 221 126 214 126 L 152 126 C 145 126 140 121 140 114 Z"
+                fill="url(#glassDisplay)"/>
+
+          <!-- Digital Readout "70%" -->
+          <text x="183" y="42" text-anchor="middle" fill="#F8FAFC" font-size="25" font-weight="800" letter-spacing="0.5">70%</text>
+          <rect x="158" y="49" width="50" height="4.5" rx="2.2" fill="#1E293B"/>
+          <rect x="158" y="49" width="35" height="4.5" rx="2.2" fill="url(#batteryCyan)"/>
+
+          <!-- Physical Power Button Pill -->
+          <rect x="185" y="74" width="32" height="15" rx="4" fill="#1F242D" stroke="#374151" stroke-width="1"/>
+          <line x1="194" y1="81.5" x2="208" y2="81.5" stroke="#E5E7EB" stroke-width="2" stroke-linecap="round"/>
+
+          <!-- Left Side Ports -->
+          <rect x="108" y="164" width="10" height="30" rx="2" fill="#111317" stroke="#374151" stroke-width="1"/>
+          <rect x="112" y="168" width="3" height="22" fill="#4B5563"/>
+          <text x="103" y="180" text-anchor="middle" fill="#374151" font-size="4.5" font-weight="700" transform="rotate(-90 103 180)">OUT1</text>
+
+          <rect x="110" y="228" width="7" height="20" rx="3.5" fill="#111317" stroke="#374151" stroke-width="1"/>
+          <rect x="112.8" y="231" width="1.5" height="14" fill="#6B7280"/>
+          <text x="103" y="238" text-anchor="middle" fill="#374151" font-size="4.5" font-weight="700" transform="rotate(-90 103 238)">IN/OUT2</text>
+
+          <!-- Etched Vertical Text -->
+          <g transform="translate(160, 294) rotate(-90)">
+            <text x="0" y="0" fill="#23262E" font-size="16.5" font-weight="800" letter-spacing="1">165W MAX</text>
+            <text x="0" y="13" fill="#2A2E37" font-size="9.5" font-weight="700" letter-spacing="0.8">20000 POWER BANK</text>
+          </g>
+        </svg>
+      `;
+    }
+
+    function getPowerBankExtraSlides() {
+      return [
+        getPowerBankSlide1SVG(),
+        `<div class="w-full h-full flex flex-col items-center justify-center p-6 text-center">
+          <div class="w-44 h-36 rounded-2xl bg-[#0F1115] border-4 border-[#525661] shadow-xl flex flex-col items-center justify-center p-4">
+            <span class="text-[10px] uppercase tracking-widest text-cyan-400 font-bold mb-1">Smart LED Display</span>
+            <div class="text-4xl font-extrabold text-white tracking-tight">70%</div>
+            <div class="w-28 h-2 bg-gray-800 rounded-full mt-2 overflow-hidden">
+              <div class="w-[70%] h-full bg-gradient-to-r from-blue-500 to-cyan-400"></div>
+            </div>
+            <div class="mt-3 text-[11px] text-emerald-400 font-semibold">⚡ 165W Fast Charge Active</div>
+          </div>
+          <p class="mt-4 text-xs font-bold text-gray-700">Real-Time Digital Battery Percentage Indicator</p>
+        </div>`,
+        `<div class="w-full h-full flex flex-col items-center justify-center p-6 text-center">
+          <div class="bg-white rounded-2xl p-4 shadow-md border border-gray-200 w-full max-w-[280px] space-y-3">
+            <div class="text-xs font-extrabold text-[#2874F0] uppercase tracking-wider">165W Max Dual Output</div>
+            <div class="flex items-center justify-between bg-[#F8FAFC] p-2.5 rounded-xl border border-gray-100">
+              <span class="text-xs font-bold text-gray-800">💻 Built-in USB-C Cable</span>
+              <span class="text-xs font-extrabold text-[#388E3C]">120W MAX</span>
+            </div>
+            <div class="flex items-center justify-between bg-[#F8FAFC] p-2.5 rounded-xl border border-gray-100">
+              <span class="text-xs font-bold text-gray-800">📱 Secondary USB-C / A</span>
+              <span class="text-xs font-extrabold text-[#2874F0]">45W MAX</span>
+            </div>
+            <div class="text-[11px] text-gray-500">Simultaneously fast-charge Laptop + Phone</div>
+          </div>
+        </div>`,
+        `<div class="w-full h-full flex flex-col items-center justify-center p-6 text-center">
+          <div class="w-20 h-20 rounded-2xl bg-[#525661] text-white flex items-center justify-center text-3xl shadow-md mb-3">🔌</div>
+          <h4 class="text-sm font-extrabold text-gray-800">Built-in Braided Type-C Cable</h4>
+          <p class="text-xs text-gray-600 mt-1 max-w-[250px]">High-strength woven nylon cable doubles as a handy carry strap and locks neatly into the side clip.</p>
+        </div>`,
+        `<div class="w-full h-full flex flex-col items-center justify-center p-6 text-center">
+          <div class="w-20 h-20 rounded-2xl bg-[#EBF3FF] text-[#2874F0] flex items-center justify-center text-3xl shadow-sm mb-3">🛡️</div>
+          <h4 class="text-sm font-extrabold text-gray-800">12-Layer Circuit Safety & Flight Safe</h4>
+          <p class="text-xs text-gray-600 mt-1 max-w-[260px]">Temperature control, over-voltage & short-circuit protection. 74Wh capacity approved for airline cabin baggage.</p>
+        </div>`,
+        `<div class="w-full h-full flex flex-col items-center justify-center p-6 text-center">
+          <div class="bg-white rounded-2xl p-4 shadow-sm border border-gray-200 w-full max-w-[260px] text-left space-y-2">
+            <div class="text-xs font-extrabold text-gray-800 border-b pb-1.5">In The Box</div>
+            <div class="text-xs text-gray-700">✓ 1 × Mi 20000mAh 165W Power Bank</div>
+            <div class="text-xs text-gray-700">✓ 1 × Integrated Braided Type-C Cable</div>
+            <div class="text-xs text-gray-700">✓ 1 × User Manual & Warranty Card</div>
+          </div>
+        </div>`
+      ];
+    }
+
+    // -------------------------------------------------------------------------
+    // 2. APPLICATION STATE & SAFE LOCAL STORAGE HELPERS
+    // -------------------------------------------------------------------------
+    function safeLoadJSON(key, fallback) {
+      try {
+        const raw = localStorage.getItem(key);
+        return raw ? JSON.parse(raw) : fallback;
+      } catch (e) {
+        return fallback;
+      }
+    }
+
+    function saveState() {
+      try {
+        localStorage.setItem('hsl_products', JSON.stringify(state.products));
+        localStorage.setItem('hsl_cart', JSON.stringify(state.cart));
+        localStorage.setItem('hsl_orders', JSON.stringify(state.orders));
+        localStorage.setItem('hsl_seller_payment', JSON.stringify(state.sellerPayment));
+      } catch (e) {
+        // Ignore storage quota errors in restricted sandboxes
+      }
+    }
+
+    const DEFAULT_PRODUCT = {
+      id: 'mi-20000-165w',
+      shortTitle: 'Mi 20000 mAh 165 W Power Bank (Space Grey, Lithium Polymer, Fast',
+      fullTitle: 'Mi 20000 mAh 165 W Power Bank (Space Grey, Lithium Polymer, Fast Charging, Built-in Type-C Cable, Smart LED Display)',
+      discount: '50%',
+      mrp: 5999,
+      price: 2499,
+      wowPrice: 2220,
+      wowEmi: 'EMI @ ₹740 x 3m',
+      emiFrom: 'From ₹754/m',
+      directBuyPrice: 2115,
+      rating: '4.2',
+      ratingCount: '223',
+      highlights: [
+        '20000 mAh High-Density Battery: Lithium Polymer cells engineered for long-lasting multi-day backup.',
+        '165W Max Hyper-Fast Output: Dual-port simultaneous output (120W + 45W) charges laptops, tablets & smartphones rapidly.',
+        'Built-in Braided Type-C Cable: Integrated durable woven cable with side clip lock — zero extra cables needed.',
+        'Smart LED Digital Display: Real-time battery percentage readout with fast-charging status indicator.',
+        '12-Layer Circuit Protection & Airline Safe: Over-voltage, thermal & short-circuit protection; safe for flight cabin baggage.'
+      ],
+      customImage: null
+    };
+
+    let state = {
+      products: safeLoadJSON('hsl_products', [DEFAULT_PRODUCT]),
+      activeProductId: 'mi-20000-165w',
+      currentSlide: 0,
+      titleExpanded: false,
+      wowExpanded: false,
+      wishlisted: false,
+      cart: safeLoadJSON('hsl_cart', []),
+      orders: safeLoadJSON('hsl_orders', []),
+      sellerPayment: safeLoadJSON('hsl_seller_payment', {
+        payeeName: '',
+        upiId: '',
+        qrImage: ''
+      }),
+      checkout: {
+        mode: 'DIRECT',
+        qty: 1,
+        paymentMethod: 'ONLINE'
+      },
+      secretTapCount: 0,
+      tempNewProductImage: '',
+      tempQrImage: ''
+    };
+
+    // -------------------------------------------------------------------------
+    // 3. SECRET SELLER ADMIN ACCESS (?seller=hsl or #admin or 5 Footer Taps)
+    // -------------------------------------------------------------------------
+    function checkSecretAdminAccess() {
+      const params = new URLSearchParams(window.location.search);
+      const hash = (window.location.hash || '').toLowerCase();
+      if (params.get('seller') === 'hsl' || hash === '#admin') {
+        unlockSellerAdminMode(false);
+      }
+    }
+
+    function unlockSellerAdminMode(notify = true) {
+      const btn = document.getElementById('sellerAdminHeaderBtn');
+      btn.classList.remove('hidden');
+      btn.classList.add('inline-flex');
+      if (notify) {
+        showToast('Secret Seller Admin Mode Unlocked! 🔓');
+      }
+    }
+
+    function lockSellerAdminMode() {
+      const btn = document.getElementById('sellerAdminHeaderBtn');
+      btn.classList.add('hidden');
+      btn.classList.remove('inline-flex');
+      state.secretTapCount = 0;
+      closeSellerModal();
+      showToast('Admin button hidden (Customer View)');
+    }
+
+    function handleSecretFooterTap() {
+      state.secretTapCount += 1;
+      if (state.secretTapCount >= 5) {
+        state.secretTapCount = 0;
+        unlockSellerAdminMode(true);
+      } else if (state.secretTapCount >= 3) {
+        showToast(`Tap ${5 - state.secretTapCount} more time(s) for Seller Admin`);
+      }
+    }
+
+    // -------------------------------------------------------------------------
+    // 4. PRODUCT PAGE RENDERING & CAROUSEL
+    // -------------------------------------------------------------------------
+    function getActiveProduct() {
+      return state.products.find(p => p.id === state.activeProductId) || state.products[0];
+    }
+
+    function getSlidesForProduct(prod) {
+      if (prod.customImage) {
+        return [
+          `<div class="w-full h-full flex items-center justify-center p-6"><img src="${prod.customImage}" alt="${prod.shortTitle}" class="max-h-full max-w-full object-contain rounded-xl"/></div>`
+        ];
+      }
+      return getPowerBankExtraSlides();
+    }
+
+    function renderProductPage() {
+      const prod = getActiveProduct();
+      state.currentSlide = 0;
+      state.titleExpanded = false;
+
+      // Render Carousel
+      const slides = getSlidesForProduct(prod);
+      const track = document.getElementById('carouselTrack');
+      const dots = document.getElementById('carouselDots');
+
+      track.innerHTML = slides.map(s => `<div class="w-full h-full shrink-0 flex items-center justify-center">${s}</div>`).join('');
+      track.style.transform = 'translateX(0%)';
+
+      dots.innerHTML = slides.map((_, idx) => `
+        <button onclick="goToSlide(${idx})" aria-label="Slide ${idx + 1}"
+          class="h-2 rounded-full transition-all duration-200 ${idx === 0 ? 'w-2.5 bg-[#2874F0]' : 'w-2 bg-gray-300'}"></button>
+      `).join('');
+
+      // Render Text & Pricing
+      document.getElementById('productRating').textContent = prod.rating;
+      document.getElementById('productRatingCount').textContent = prod.ratingCount;
+      document.getElementById('productTitleText').textContent = prod.shortTitle;
+      document.getElementById('moreToggleBtn').textContent = '...more';
+      document.getElementById('moreToggleBtn').classList.toggle('hidden', prod.shortTitle === prod.fullTitle);
+
+      document.getElementById('productDiscount').textContent = prod.discount;
+      document.getElementById('productMrp').textContent = Number(prod.mrp).toLocaleString('en-IN');
+      document.getElementById('productPrice').textContent = '₹' + Number(prod.price).toLocaleString('en-IN');
+      document.getElementById('wowDealPrice').textContent = '₹' + Number(prod.wowPrice).toLocaleString('en-IN');
+      document.getElementById('wowDealEmi').textContent = prod.wowEmi;
+      document.getElementById('bottomEmiSubtext').textContent = prod.emiFrom;
+      document.getElementById('bottomBuyNowSubtext').textContent = 'at ₹' + Number(prod.directBuyPrice).toLocaleString('en-IN');
+
+      // Render Highlights
+      const hlList = document.getElementById('highlightsList');
+      hlList.innerHTML = (prod.highlights || []).map(item => {
+        const parts = item.split(':');
+        if (parts.length > 1) {
+          return `<li class="flex items-start gap-2.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#2874F0] mt-2 shrink-0"></span>
+            <span><strong class="text-[#212121]">${parts[0]}:</strong>${parts.slice(1).join(':')}</span>
+          </li>`;
+        }
+        return `<li class="flex items-start gap-2.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#2874F0] mt-2 shrink-0"></span>
+          <span>${item}</span>
+        </li>`;
+      }).join('');
+
+      renderMoreProductsGrid();
+      updateHeaderBadges();
+    }
+
+    function renderMoreProductsGrid() {
+      const section = document.getElementById('moreProductsSection');
+      const grid = document.getElementById('storeProductsGrid');
+      if (state.products.length <= 1) {
+        section.classList.add('hidden');
+        return;
+      }
+      section.classList.remove('hidden');
+      grid.innerHTML = state.products.map(p => `
+        <button onclick="selectProduct('${p.id}')" class="text-left p-2.5 rounded-xl border ${p.id === state.activeProductId ? 'border-[#2874F0] bg-[#F5F9FF]' : 'border-gray-200 bg-white'} hover:shadow-sm transition">
+          <div class="text-xs font-bold text-[#212121] line-clamp-2">${p.fullTitle}</div>
+          <div class="mt-1.5 flex items-baseline gap-1.5">
+            <span class="text-xs font-extrabold text-[#212121]">₹${Number(p.directBuyPrice).toLocaleString('en-IN')}</span>
+            <span class="text-[10px] text-gray-400 line-through">₹${Number(p.mrp).toLocaleString('en-IN')}</span>
+          </div>
+        </button>
+      `).join('');
+    }
+
+    function selectProduct(prodId) {
+      state.activeProductId = prodId;
+      clearSearch();
+      renderProductPage();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function resetToFeaturedProduct() {
+      state.activeProductId = state.products[0].id;
+      clearSearch();
+      renderProductPage();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function goToSlide(idx) {
+      const prod = getActiveProduct();
+      const total = getSlidesForProduct(prod).length;
+      state.currentSlide = (idx + total) % total;
+      document.getElementById('carouselTrack').style.transform = `translateX(-${state.currentSlide * 100}%)`;
+
+      const dots = document.getElementById('carouselDots').children;
+      Array.from(dots).forEach((dot, i) => {
+        dot.className = `h-2 rounded-full transition-all duration-200 ${i === state.currentSlide ? 'w-2.5 bg-[#2874F0]' : 'w-2 bg-gray-300'}`;
+      });
+    }
+
+    function nextSlide() { goToSlide(state.currentSlide + 1); }
+    function prevSlide() { goToSlide(state.currentSlide - 1); }
+
+    // Touch swipe support on carousel
+    (function setupCarouselSwipe() {
+      const viewport = document.getElementById('carouselViewport');
+      let startX = 0;
+      viewport.addEventListener('touchstart', e => {
+        startX = e.touches[0].clientX;
+      }, { passive: true });
+      viewport.addEventListener('touchend', e => {
+        const diff = e.changedTouches[0].clientX - startX;
+        if (Math.abs(diff) > 40) {
+          if (diff < 0) nextSlide();
+          else prevSlide();
+        }
+      }, { passive: true });
+    })();
+
+    // -------------------------------------------------------------------------
+    // 5. INTERACTIVE UI TOGGLES & SEARCH
+    // -------------------------------------------------------------------------
+    function toggleTitleMore() {
+      const prod = getActiveProduct();
+      state.titleExpanded = !state.titleExpanded;
+      document.getElementById('productTitleText').textContent = state.titleExpanded ? prod.fullTitle : prod.shortTitle;
+      document.getElementById('moreToggleBtn').textContent = state.titleExpanded ? ' less' : '...more';
+    }
+
+    function toggleWowDeal() {
+      state.wowExpanded = !state.wowExpanded;
+      document.getElementById('wowDealDetails').classList.toggle('hidden', !state.wowExpanded);
+      document.getElementById('wowChevron').classList.toggle('rotate-180', !state.wowExpanded);
+    }
+
+    function toggleWishlist() {
+      state.wishlisted = !state.wishlisted;
+      const btn = document.getElementById('wishlistBtn');
+      btn.classList.toggle('text-red-500', state.wishlisted);
+      btn.classList.toggle('text-gray-400', !state.wishlisted);
+      showToast(state.wishlisted ? 'Added to Wishlist ❤️' : 'Removed from Wishlist');
+    }
+
+    function copyProductLink() {
+      const cleanUrl = window.location.origin + window.location.pathname;
+      const el = document.createElement('input');
+      el.value = cleanUrl;
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand('copy');
+      document.body.removeChild(el);
+      showToast('Store link copied to share!');
+    }
+
+    function togglePincodeInput() {
+      document.getElementById('pincodeForm').classList.toggle('hidden');
+    }
+
+    function applyPincode() {
+      const pin = document.getElementById('pincodeInput').value.trim();
+      if (/^\d{6}$/.test(pin)) {
+        document.getElementById('deliveryCityLabel').textContent = `Pincode - ${pin}`;
+        document.getElementById('pincodeForm').classList.add('hidden');
+        showToast(`Delivery available for ${pin} (Prepaid Online)`);
+      } else {
+        showToast('Please enter a valid 6-digit Pincode');
+      }
+    }
+
+    function handleSearch(query) {
+      const q = query.trim().toLowerCase();
+      const bar = document.getElementById('searchResultsBar');
+      const clearBtn = document.getElementById('clearSearchBtn');
+      const list = document.getElementById('searchResultsList');
+
+      if (!q) {
+        bar.classList.add('hidden');
+        clearBtn.classList.add('hidden');
+        return;
+      }
+
+      clearBtn.classList.remove('hidden');
+      bar.classList.remove('hidden');
+
+      const matches = state.products.filter(p => p.fullTitle.toLowerCase().includes(q));
+      if (matches.length === 0) {
+        list.innerHTML = `<div class="text-xs text-gray-500 py-1">No matching products found for "${query}"</div>`;
+      } else {
+        list.innerHTML = matches.map(m => `
+          <button onclick="selectProduct('${m.id}')" class="w-full text-left flex items-center justify-between p-2 rounded-lg hover:bg-gray-50 border border-gray-100">
+            <span class="text-xs font-semibold text-[#212121] truncate pr-2">${m.fullTitle}</span>
+            <span class="text-xs font-bold text-[#2874F0] shrink-0">₹${Number(m.directBuyPrice).toLocaleString('en-IN')}</span>
+          </button>
+        `).join('');
+      }
+    }
+
+    function clearSearch() {
+      document.getElementById('searchInput').value = '';
+      document.getElementById('searchResultsBar').classList.add('hidden');
+      document.getElementById('clearSearchBtn').classList.add('hidden');
+    }
+
+    function openProtectModal() { document.getElementById('protectModal').classList.remove('hidden'); }
+    function closeProtectModal() { document.getElementById('protectModal').classList.add('hidden'); }
+
+    let toastTimer = null;
+    function showToast(msg) {
+      const banner = document.getElementById('toastBanner');
+      document.getElementById('toastMessage').textContent = msg;
+      banner.classList.remove('hidden');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => banner.classList.add('hidden'), 2600);
+    }
+
+    // -------------------------------------------------------------------------
+    // 6. SHOPPING CART MANAGEMENT
+    // -------------------------------------------------------------------------
+    function updateHeaderBadges() {
+      const totalItems = state.cart.reduce((sum, item) => sum + item.qty, 0);
+      document.getElementById('headerCartBadge').textContent = totalItems;
+      document.getElementById('ordersDotBadge').classList.toggle('hidden', state.orders.length === 0);
+    }
+
+    function addToCartCurrent() {
+      const prod = getActiveProduct();
+      const existing = state.cart.find(c => c.id === prod.id);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        state.cart.push({
+          id: prod.id,
+          title: prod.fullTitle,
+          price: Number(prod.directBuyPrice),
+          qty: 1
+        });
+      }
+      saveState();
+      updateHeaderBadges();
+      showToast('Added to Cart ✓');
+    }
+
+    function openCartDrawer() {
+      const container = document.getElementById('cartItemsContainer');
+      const footer = document.getElementById('cartFooter');
+      const totalCount = state.cart.reduce((s, i) => s + i.qty, 0);
+      document.getElementById('cartModalCount').textContent = totalCount;
+
+      if (state.cart.length === 0) {
+        container.innerHTML = `<div class="bg-white rounded-xl p-8 text-center text-gray-500 text-sm">Your HSL Flipkart cart is empty.</div>`;
+        footer.classList.add('hidden');
+      } else {
+        let total = 0;
+        container.innerHTML = state.cart.map((item, idx) => {
+          total += item.price * item.qty;
+          return `
+            <div class="bg-white p-3 rounded-xl border border-gray-200 flex items-center justify-between gap-3">
+              <div class="min-w-0 flex-1">
+                <div class="text-xs font-bold text-[#212121] truncate">${item.title}</div>
+                <div class="text-sm font-extrabold text-[#2874F0] mt-1">₹${(item.price * item.qty).toLocaleString('en-IN')}</div>
+              </div>
+              <div class="flex items-center gap-2">
+                <button onclick="updateCartQty(${idx}, -1)" class="w-7 h-7 rounded-lg bg-gray-100 font-bold text-xs">-</button>
+                <span class="text-xs font-bold">${item.qty}</span>
+                <button onclick="updateCartQty(${idx}, 1)" class="w-7 h-7 rounded-lg bg-gray-100 font-bold text-xs">+</button>
+              </div>
+            </div>
+          `;
+        }).join('');
+        document.getElementById('cartTotalAmount').textContent = '₹' + total.toLocaleString('en-IN');
+        footer.classList.remove('hidden');
+      }
+      document.getElementById('cartModal').classList.remove('hidden');
+    }
+
+    function closeCartDrawer() {
+      document.getElementById('cartModal').classList.add('hidden');
+    }
+
+    function updateCartQty(idx, delta) {
+      state.cart[idx].qty += delta;
+      if (state.cart[idx].qty <= 0) {
+        state.cart.splice(idx, 1);
+      }
+      saveState();
+      updateHeaderBadges();
+      openCartDrawer();
+    }
+
+    function checkoutFromCart() {
+      if (state.cart.length === 0) return;
+      const firstItem = state.cart[0];
+      state.activeProductId = firstItem.id;
+      renderProductPage();
+      closeCartDrawer();
+      openCheckout('DIRECT', firstItem.qty);
+    }
+
+    // -------------------------------------------------------------------------
+    // 7. DIRECT IN-APP 3-STEP CHECKOUT (ONLINE PAYMENT ONLY)
+    // -------------------------------------------------------------------------
+    function openCheckout(mode = 'DIRECT', presetQty = 1) {
+      state.checkout.mode = mode;
+      state.checkout.qty = presetQty;
+      state.checkout.paymentMethod = 'ONLINE';
+
+      document.getElementById('checkoutModal').classList.remove('hidden');
+      document.getElementById('checkoutSuccessStep').classList.add('hidden');
+      goToCheckoutStep(1);
+    }
+
+    function closeCheckout() {
+      document.getElementById('checkoutModal').classList.add('hidden');
+    }
+
+    function goToCheckoutStep(step) {
+      const errBox = document.getElementById('step1Error');
+      errBox.classList.add('hidden');
+
+      if (step >= 2) {
+        const name = document.getElementById('custName').value.trim();
+        const phone = document.getElementById('custPhone').value.trim();
+        const pin = document.getElementById('custPincode').value.trim();
+        const city = document.getElementById('custCity').value.trim();
+        const addr = document.getElementById('custAddress').value.trim();
+
+        if (!name || !/^\d{10}$/.test(phone) || !/^\d{6}$/.test(pin) || !city || !addr) {
+          errBox.textContent = 'Please fill Name, 10-digit Mobile, 6-digit Pincode, City & Full Address.';
+          errBox.classList.remove('hidden');
+          return;
+        }
+
+        // Populate Step 2 Summary
+        const prod = getActiveProduct();
+        const unitPrice = state.checkout.mode === 'EMI' ? Number(prod.wowPrice) : Number(prod.directBuyPrice);
+        const total = unitPrice * state.checkout.qty;
+
+        document.getElementById('summaryAddressBox').innerHTML = `
+          <div class="font-bold text-[#212121]">${name} • ${phone}</div>
+          <div class="mt-0.5 text-gray-600">${addr}, ${city} - <strong>${pin}</strong></div>
+        `;
+        document.getElementById('summaryProductThumb').innerHTML = prod.customImage
+          ? `<img src="${prod.customImage}" class="w-full h-full object-contain"/>`
+          : `<span class="text-2xl">🔋</span>`;
+        document.getElementById('summaryProductTitle').textContent = prod.fullTitle;
+        document.getElementById('summaryModeTag').textContent = state.checkout.mode === 'EMI'
+          ? `EMI Offer (${prod.emiFrom})`
+          : 'Special Direct Offer Price';
+        document.getElementById('summaryUnitPrice').textContent = '₹' + unitPrice.toLocaleString('en-IN');
+        document.getElementById('checkoutQty').textContent = state.checkout.qty;
+        document.getElementById('priceQtyLabel').textContent = state.checkout.qty;
+        document.getElementById('breakdownBasePrice').textContent = '₹' + total.toLocaleString('en-IN');
+        document.getElementById('breakdownTotal').textContent = '₹' + total.toLocaleString('en-IN');
+        document.getElementById('confirmPayBtnAmount').textContent = '₹' + total.toLocaleString('en-IN');
+      }
+
+      if (step === 3) {
+        renderOnlinePaymentArea();
+      }
+
+      [1, 2, 3].forEach(s => {
+        document.getElementById(`checkoutStep${s}`).classList.toggle('hidden', s !== step);
+        const ind = document.getElementById(`stepIndicator${s}`);
+        if (s <= step) {
+          ind.className = 'flex items-center gap-1.5 text-[#2874F0]';
+          ind.children[0].className = 'w-5 h-5 rounded-full bg-[#2874F0] text-white flex items-center justify-center text-[11px]';
+        } else {
+          ind.className = 'flex items-center gap-1.5 text-gray-400';
+          ind.children[0].className = 'w-5 h-5 rounded-full bg-gray-300 text-white flex items-center justify-center text-[11px]';
+        }
+      });
+    }
+
+    function changeCheckoutQty(delta) {
+      state.checkout.qty = Math.max(1, state.checkout.qty + delta);
+      goToCheckoutStep(2);
+    }
+
+    function renderOnlinePaymentArea() {
+      const upiArea = document.getElementById('sellerUpiDisplayArea');
+      const { payeeName, upiId, qrImage } = state.sellerPayment;
+      if (upiId || qrImage) {
+        upiArea.innerHTML = `
+          <div class="p-3 rounded-lg bg-white border border-blue-200 space-y-2">
+            <div class="text-[11px] font-bold text-[#2874F0] uppercase">Scan QR or Pay UPI to ${payeeName || 'HSL Flipkart Store'}</div>
+            ${upiId ? `<div class="flex items-center justify-between bg-gray-50 px-2.5 py-1.5 rounded border">
+              <span class="font-mono font-bold text-xs text-gray-800">${upiId}</span>
+              <button type="button" onclick="copySellerUpi('${upiId}')" class="text-[11px] font-bold text-[#2874F0]">Copy UPI</button>
+            </div>` : ''}
+            ${qrImage ? `<div class="flex justify-center pt-1"><img src="${qrImage}" alt="Seller QR" class="w-40 h-40 object-contain rounded border"/></div>` : ''}
+          </div>
+        `;
+      } else {
+        upiArea.innerHTML = `
+          <div class="p-2.5 rounded-lg bg-white border border-blue-200 text-gray-700 text-[12px] space-y-1">
+            <div class="font-bold text-[#2874F0]">Online Payment (Prepaid Verification)</div>
+            <p class="text-[11.5px] text-gray-600">Seller QR Code / UPI ID is currently unconfigured for preview testing. You can click <strong>Place Test Order</strong> below to test the checkout flow with friends!</p>
+          </div>
+        `;
+      }
+    }
+
+    function copySellerUpi(upi) {
+      const el = document.createElement('input');
+      el.value = upi;
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand('copy');
+      document.body.removeChild(el);
+      showToast('UPI ID copied!');
+    }
+
+    function placeFinalOrder(isTestOrder = false) {
+      const prod = getActiveProduct();
+      const unitPrice = state.checkout.mode === 'EMI' ? Number(prod.wowPrice) : Number(prod.directBuyPrice);
+      const totalAmount = unitPrice * state.checkout.qty;
+      const orderId = 'HSL-OD' + Math.floor(10000 + Math.random() * 90000);
+      const utiRef = document.getElementById('upiRefInput').value.trim();
+
+      const paymentLabel = isTestOrder
+        ? 'Online Payment (Test Order Demo)'
+        : 'Online Payment (Prepaid UPI/QR)';
+
+      const newOrder = {
+        orderId,
+        date: new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }),
+        productTitle: prod.fullTitle,
+        qty: state.checkout.qty,
+        totalAmount,
+        paymentMethod: paymentLabel,
+        upiRef: utiRef,
+        customer: {
+          name: document.getElementById('custName').value.trim(),
+          phone: document.getElementById('custPhone').value.trim(),
+          pincode: document.getElementById('custPincode').value.trim(),
+          city: document.getElementById('custCity').value.trim(),
+          address: document.getElementById('custAddress').value.trim()
+        },
+        status: isTestOrder ? 'Test Order Confirmed' : 'Prepaid Order Confirmed'
+      };
+
+      state.orders.unshift(newOrder);
+      saveState();
+      updateHeaderBadges();
+
+      [1, 2, 3].forEach(s => document.getElementById(`checkoutStep${s}`).classList.add('hidden'));
+      document.getElementById('checkoutSuccessStep').classList.remove('hidden');
+      document.getElementById('confirmedOrderId').textContent = orderId;
+      document.getElementById('confirmedOrderMode').textContent = newOrder.paymentMethod;
+      document.getElementById('confirmedOrderTotal').textContent = '₹' + totalAmount.toLocaleString('en-IN');
+    }
+
+    // -------------------------------------------------------------------------
+    // 8. MY ORDERS MODAL
+    // -------------------------------------------------------------------------
+    function openOrdersModal() {
+      const list = document.getElementById('customerOrdersList');
+      if (state.orders.length === 0) {
+        list.innerHTML = `<div class="bg-white rounded-xl p-8 text-center text-gray-500 text-sm">No orders placed yet. Click <strong>Buy now at ₹2,115</strong> to place your first order!</div>`;
+      } else {
+        list.innerHTML = state.orders.map(o => `
+          <div class="bg-white p-3.5 rounded-xl border border-gray-200 space-y-2 shadow-2xs">
+            <div class="flex items-center justify-between border-b border-gray-100 pb-2">
+              <span class="text-xs font-extrabold text-[#2874F0]">${o.orderId}</span>
+              <span class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-[#E8F5E9] text-[#388E3C]">${o.status}</span>
+            </div>
+            <div class="text-xs font-bold text-[#212121]">${o.productTitle} (Qty: ${o.qty})</div>
+            <div class="flex items-center justify-between text-xs text-gray-600">
+              <span>${o.paymentMethod}</span>
+              <span class="font-extrabold text-[#212121]">₹${Number(o.totalAmount).toLocaleString('en-IN')}</span>
+            </div>
+            <div class="text-[11px] text-gray-500 bg-gray-50 p-2 rounded-lg">
+              Deliver to: <strong>${o.customer.name}</strong> (${o.customer.phone}) — ${o.customer.address}, ${o.customer.city} - ${o.customer.pincode}
+            </div>
+          </div>
+        `).join('');
+      }
+      document.getElementById('ordersModal').classList.remove('hidden');
+    }
+
+    function closeOrdersModal() {
+      document.getElementById('ordersModal').classList.add('hidden');
+    }
+
+    // -------------------------------------------------------------------------
+    // 9. SECRET SELLER ADMIN PANEL
+    // -------------------------------------------------------------------------
+    function openSellerModal() {
+      const prod = getActiveProduct();
+      document.getElementById('sellerOrderCountBadge').textContent = state.orders.length;
+      document.getElementById('sellerPayeeInput').value = state.sellerPayment.payeeName || '';
+      document.getElementById('sellerUpiInput').value = state.sellerPayment.upiId || '';
+      if (state.sellerPayment.qrImage) {
+        document.getElementById('sellerQrPreview').innerHTML = `<img src="${state.sellerPayment.qrImage}" class="w-24 h-24 object-contain rounded border"/>`;
+      } else {
+        document.getElementById('sellerQrPreview').innerHTML = '';
+      }
+
+      document.getElementById('editCurrTitle').value = prod.fullTitle;
+      document.getElementById('editCurrMrp').value = prod.mrp;
+      document.getElementById('editCurrPrice').value = prod.price;
+      document.getElementById('editCurrDirect').value = prod.directBuyPrice;
+
+      const baseUrl = window.location.origin + window.location.pathname;
+      document.getElementById('publicCustomerLinkBox').value = baseUrl;
+      document.getElementById('secretAdminLinkBox').value = baseUrl + '?seller=hsl';
+
+      renderSellerOrdersList();
+      switchSellerTab(1);
+      document.getElementById('sellerModal').classList.remove('hidden');
+    }
+
+    function closeSellerModal() {
+      document.getElementById('sellerModal').classList.add('hidden');
+    }
+
+    function switchSellerTab(tabNum) {
+      [1, 2, 3, 4].forEach(t => {
+        document.getElementById(`sellerTab${t}`).classList.toggle('hidden', t !== tabNum);
+        const btn = document.getElementById(`sellerTabBtn${t}`);
+        if (t === tabNum) {
+          btn.className = 'flex-1 py-2.5 text-[#2874F0] border-b-2 border-[#2874F0] bg-white';
+        } else {
+          btn.className = 'flex-1 py-2.5 text-gray-500';
+        }
+      });
+    }
+
+    function copyGeneratedLink(inputId, msg) {
+      const inp = document.getElementById(inputId);
+      inp.select();
+      inp.setSelectionRange(0, 99999);
+      document.execCommand('copy');
+      showToast(msg);
+    }
+
+    function saveEditedCurrentProduct() {
+      const prod = getActiveProduct();
+      const newTitle = document.getElementById('editCurrTitle').value.trim();
+      const newMrp = Number(document.getElementById('editCurrMrp').value);
+      const newPrice = Number(document.getElementById('editCurrPrice').value);
+      const newDirect = Number(document.getElementById('editCurrDirect').value);
+
+      if (!newTitle || !newMrp || !newPrice || !newDirect) {
+        showToast('Please fill all product price fields');
+        return;
+      }
+
+      prod.fullTitle = newTitle;
+      prod.shortTitle = newTitle.length > 58 ? newTitle.slice(0, 58) : newTitle;
+      prod.mrp = newMrp;
+      prod.price = newPrice;
+      prod.directBuyPrice = newDirect;
+      prod.discount = Math.max(5, Math.round(((newMrp - newPrice) / newMrp) * 100)) + '%';
+      prod.wowPrice = Math.max(99, newPrice - 279);
+      prod.wowEmi = `EMI @ ₹${Math.round(prod.wowPrice / 3)} x 3m`;
+      prod.emiFrom = `From ₹${Math.round(newDirect / 3)}/m`;
+
+      saveState();
+      renderProductPage();
+      showToast('Product details updated!');
+    }
+
+    function renderSellerOrdersList() {
+      const container = document.getElementById('sellerOrdersList');
+      if (state.orders.length === 0) {
+        container.innerHTML = `<div class="text-center text-xs text-gray-500 py-8 bg-gray-50 rounded-xl">No customer orders received yet.</div>`;
+        return;
+      }
+      container.innerHTML = state.orders.map((o, idx) => `
+        <div class="p-3 rounded-xl border border-gray-200 bg-gray-50 space-y-2 text-xs">
+          <div class="flex items-center justify-between">
+            <span class="font-extrabold text-[#2874F0]">${o.orderId} • ${o.date}</span>
+            <select onchange="updateOrderStatus(${idx}, this.value)" class="border border-gray-300 rounded px-2 py-0.5 bg-white font-semibold text-[11px]">
+              <option ${o.status === 'Prepaid Order Confirmed' ? 'selected' : ''}>Prepaid Order Confirmed</option>
+              <option ${o.status === 'Test Order Confirmed' ? 'selected' : ''}>Test Order Confirmed</option>
+              <option ${o.status === 'Shipped' ? 'selected' : ''}>Shipped</option>
+              <option ${o.status === 'Delivered' ? 'selected' : ''}>Delivered</option>
+            </select>
+          </div>
+          <div class="font-bold text-gray-800">${o.productTitle} × ${o.qty} — ₹${Number(o.totalAmount).toLocaleString('en-IN')}</div>
+          <div class="text-gray-600"><strong>Payment:</strong> ${o.paymentMethod} ${o.upiRef ? `(Ref: ${o.upiRef})` : ''}</div>
+          <div class="text-gray-700 bg-white p-2 rounded border border-gray-100">
+            <strong>Customer:</strong> ${o.customer.name} (${o.customer.phone})<br/>
+            ${o.customer.address}, ${o.customer.city} - ${o.customer.pincode}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function updateOrderStatus(idx, newStatus) {
+      state.orders[idx].status = newStatus;
+      saveState();
+      showToast(`Order status updated to ${newStatus}`);
+    }
+
+    function handleQrUpload(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = e => {
+        state.tempQrImage = e.target.result;
+        document.getElementById('sellerQrPreview').innerHTML = `<img src="${state.tempQrImage}" class="w-24 h-24 object-contain rounded border"/>`;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function saveSellerPaymentSettings() {
+      state.sellerPayment.payeeName = document.getElementById('sellerPayeeInput').value.trim();
+      state.sellerPayment.upiId = document.getElementById('sellerUpiInput').value.trim();
+      if (state.tempQrImage) state.sellerPayment.qrImage = state.tempQrImage;
+      saveState();
+      showToast('Payment settings saved!');
+    }
+
+    function clearSellerPaymentSettings() {
+      state.sellerPayment = { payeeName: '', upiId: '', qrImage: '' };
+      state.tempQrImage = '';
+      document.getElementById('sellerPayeeInput').value = '';
+      document.getElementById('sellerUpiInput').value = '';
+      document.getElementById('sellerQrPreview').innerHTML = '';
+      saveState();
+      showToast('Payment details cleared');
+    }
+
+    function handleNewProductImage(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = e => { state.tempNewProductImage = e.target.result; };
+      reader.readAsDataURL(file);
+    }
+
+    function addNewStoreProduct() {
+      const title = document.getElementById('newProdTitle').value.trim();
+      const mrp = Number(document.getElementById('newProdMrp').value);
+      const price = Number(document.getElementById('newProdPrice').value);
+      const directPrice = Number(document.getElementById('newProdDirectPrice').value) || price;
+      const hlRaw = document.getElementById('newProdHighlights').value.trim();
+
+      if (!title || !mrp || !price) {
+        showToast('Please enter Title, MRP, and Selling Price');
+        return;
+      }
+
+      const discountPct = Math.max(5, Math.round(((mrp - price) / mrp) * 100)) + '%';
+      const newProd = {
+        id: 'prod-' + Date.now(),
+        shortTitle: title.length > 58 ? title.slice(0, 58) : title,
+        fullTitle: title,
+        discount: discountPct,
+        mrp,
+        price,
+        wowPrice: Math.max(99, price - 100),
+        wowEmi: `EMI @ ₹${Math.round(price / 3)} x 3m`,
+        emiFrom: `From ₹${Math.round(price / 3)}/m`,
+        directBuyPrice: directPrice,
+        rating: '4.4',
+        ratingCount: '89',
+        highlights: hlRaw ? hlRaw.split(',').map(s => s.trim()) : ['HSL Flipkart Assured Quality', '7 Days Easy Replacement'],
+        customImage: state.tempNewProductImage || null
+      };
+
+      state.products.push(newProd);
+      state.activeProductId = newProd.id;
+      state.tempNewProductImage = '';
+      saveState();
+      renderProductPage();
+      closeSellerModal();
+      showToast('New product published to HSL Flipkart!');
+    }
+
+    // Initialize App on Load
+    window.addEventListener('DOMContentLoaded', () => {
+      checkSecretAdminAccess();
+      renderProductPage();
+    });
+  </script>
+</body>
+</html>
